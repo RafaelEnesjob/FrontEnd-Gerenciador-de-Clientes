@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-header">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-between">
+      Listagem de clientes
+      <div class="btn-group btn-group-sm">
+        <button class="btn btn-success" type="button" (click)="exportExcel()"><i class="fas fa-file-excel"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+
+      <div class="col-md-8"></div>
+    <div class="col-md-3 ms-auto">
+    <input
+    placeholder="Pesquisar por nome"
+     type="text" class="form-control " id="nome" (keyup)="buscar($event)"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+  </div>
+  
+    <table class="table table-bordered table-striped table-hover" id="customer-table">
+      <thead class="text-uppercase">
+        <tr>
+          <th>Nome</th>
+          <th>CPF/CNPJ</th>
+          <th>Telefone</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of clientes">
+          <td data-label="nome">
+            <h6 class="m-0 fw-normal">{{ item.nome }}</h6>
+            <p class="mb-0 text-muted"><small>{{ item.email }}</small></p>
+          </td>
+          <td data-label="documento">{{ item.documento }}</td>
+          
+          <td data-label="Telefone">{{ item.telefone }}</td>
+          <td data-label="Ações">
+            <div class="btn-group btn-group-sm d-none d-sm-block" role="group">
+              <a [routerLink]="['/details', item.id]" class="btn btn-info"><i class="fas fa-info-circle"></i></a>
+              <a [routerLink]="['/edit', item.id]" class="btn btn-warning"><i class="fas fa-pen"></i></a>
+              <button [ngClass]="item.ativo ? 'btn btn-primary' : 'btn btn-secondary'" (click)="destroy(item.id,item.ativo)"><i 
+                [ngClass]="item.ativo ? 'fas fa-toggle-on' : 'fas fa-toggle-off'"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="card" id="card-details">
+  <div class="card-header">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-between">
+      Detalhes do Cliente
+      <div class="btn-group btn-group-sm">
+        <a [routerLink]="['/list']" class="btn btn-primary" type="button"><i class="fas fa-arrow-left"></i></a>
+        <a [routerLink]="['/edit', cliente?.id ]" class="btn btn-primary" type="button"><i class="fas fa-pen"></i></a>      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <b>Nome:</b> {{ cliente?.nome }}
+          </li>
+          <li class="list-group-item">
+            <b>Telefone:</b> {{ cliente?.telefone }}
+          </li>
+          <li class="list-group-item">
+            <b>Email:</b> {{ cliente?.email }}
+          </li>
+          <li class="list-group-item">
+            <b>Documento:</b> {{ cliente?.documento }}
+          </li>
+          <li class="list-group-item">
+            <b>Ativo:</b> {{ cliente?.ativo }}
+          </li>
+          <li class="list-group-item">
+            <b>Endereco:</b> {{ cliente?.endereco }}
+          </li>
+          <li class="list-group-item">
+            <b>Numero:</b> {{ cliente?.numero }}
+          </li>
+          <li class="list-group-item">
+            <b>Bairro:</b> {{ cliente?.bairro }}
+          </li>
+          <li class="list-group-item">
+            <b>CEP:</b> {{ cliente?.cep }}
+          </li>
+          <li class="list-group-item">
+            <b>Cidade:</b> {{ cliente?.cidade }}
+          </li>
+          <li class="list-group-item">
+            <b>UF:</b> {{ cliente?.uf }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
